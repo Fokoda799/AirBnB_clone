@@ -5,7 +5,7 @@ Version: 1.0.0
 
 This project aims to build a command-line interpreter to manage AirBnB objects, setting the foundation for a full web application. The primary focus is on developing a serialization/deserialization flow, creating classes for AirBnB objects, and implementing a file storage engine. The project also includes comprehensive unit tests to validate all classes and storage functionalities.
 
-![AirBnB Clone](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240211%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240211T113258Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=927f614ad716881367020f9d78c6c9ce533e0aaefa015c2cc9cb9a83391ea4d2)
+![AirBnB Clone](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/815046647d23428a14ca.png)
 
 ## Project Overview
 
