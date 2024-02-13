@@ -1,0 +1,75 @@
+{
+  "User.c763b99c-2697-4a0c-b236-83eb040815d7": {
+    "id": "c763b99c-2697-4a0c-b236-83eb040815d7",
+    "created_at": "2024-02-13T19:06:40.260351",
+    "updated_at": "2024-02-13T19:06:40.260389",
+    "__class__": "User",
+    "email": "",
+    "first_name": "",
+    "last_name": "",
+    "password": ""
+  },
+  "State.ef085c5f-8cdc-4757-ac49-ff662bcd63ef": {
+    "id": "ef085c5f-8cdc-4757-ac49-ff662bcd63ef",
+    "created_at": "2024-02-13T19:09:11.908786",
+    "updated_at": "2024-02-13T19:09:11.908825",
+    "__class__": "State",
+    "name": ""
+  },
+  "State.6edca56a-ab5e-44d0-a38f-e80d96d784ab": {
+    "id": "6edca56a-ab5e-44d0-a38f-e80d96d784ab",
+    "created_at": "2024-02-13T19:09:38.311436",
+    "updated_at": "2024-02-13T19:09:38.311473",
+    "__class__": "State",
+    "name": ""
+  },
+  "City.bfa0e68b-5a25-487d-af6e-504635f2e8f5": {
+    "id": "bfa0e68b-5a25-487d-af6e-504635f2e8f5",
+    "created_at": "2024-02-13T19:17:04.784254",
+    "updated_at": "2024-02-13T19:17:04.784296",
+    "__class__": "City",
+    "name": "",
+    "state_id": ""
+  },
+  "City.65568b42-3ec1-4932-8f0d-270d4e848ad3": {
+    "id": "65568b42-3ec1-4932-8f0d-270d4e848ad3",
+    "created_at": "2024-02-13T19:17:36.077136",
+    "updated_at": "2024-02-13T19:17:36.077171",
+    "__class__": "City",
+    "name": "",
+    "state_id": ""
+  },
+  "City.ba336a0b-43ed-42bd-b641-a7094ad97dca": {
+    "id": "ba336a0b-43ed-42bd-b641-a7094ad97dca",
+    "created_at": "2024-02-13T19:21:31.667685",
+    "updated_at": "2024-02-13T19:21:31.667728",
+    "__class__": "City",
+    "name": "",
+    "state_id": ""
+  },
+  "City.c50fe8ee-b5bb-453a-be5a-4772fd2ec349": {
+    "id": "c50fe8ee-b5bb-453a-be5a-4772fd2ec349",
+    "created_at": "2024-02-13T19:28:20.835350",
+    "updated_at": "2024-02-13T19:28:20.835409",
+    "__class__": "City",
+    "name": "",
+    "state_id": ""
+  },
+  "City.e37efc52-49d8-4041-a6d3-1e5c22f015ca": {
+    "id": "e37efc52-49d8-4041-a6d3-1e5c22f015ca",
+    "created_at": "2024-02-13T19:30:24.933347",
+    "updated_at": "2024-02-13T19:30:24.933387",
+    "__class__": "City",
+    "name": "",
+    "state_id": ""
+  },
+  "Review.3b68abbf-9aef-4d78-b6d1-c7f0009c00f3": {
+    "id": "3b68abbf-9aef-4d78-b6d1-c7f0009c00f3",
+    "created_at": "2024-02-13T19:30:33.130273",
+    "updated_at": "2024-02-13T19:30:33.130313",
+    "__class__": "Review",
+    "place_id": "",
+    "text": "",
+    "user_id": ""
+  }
+}

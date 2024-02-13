@@ -7,8 +7,18 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+from datetime import datetime
 import json
 import os
+
+
+class DateTimeEncoder(json.JSONEncoder):
+    """Date time encoder"""
+    def default(self, obj):
+        """default"""
+        if isinstance(obj, datetime):
+            return obj.isoformat()
+        return super().default(obj)
 
 
 class FileStorage:
@@ -28,17 +38,18 @@ class FileStorage:
 
     def save(self):
         """serializes __objects to the JSON file"""
-        dicts = {}
-        for key in FileStorage.__objects:
-            dicts[key] = FileStorage.__objects[key].to_dict()
-        with open(FileStorage.__file_path, 'w') as file:
-            json.dump(dicts, file, indent=2)
+        dicts = {k: v.to_dict() for k, v in FileStorage.__objects.items()}
+        with open(self.__file_path, 'w', encoding='utf-8') as file:
+            json.dump(dicts, file, indent=2, cls=DateTimeEncoder)
 
     def reload(self):
         """deserializes the JSON file to __objects"""
         if os.path.exists(FileStorage.__file_path):
-            with open(FileStorage.__file_path, 'r') as file:
-                dicts = json.load(file)
+            try:
+                with open(FileStorage.__file_path, 'r') as file:
+                    dicts = json.load(file)
+            except (FileNotFoundError, json.JSONDecodeError):
+                dicts = {}
             for key in dicts:
                 class_name, obj_id = key.split('.')
                 if class_name == "BaseModel":

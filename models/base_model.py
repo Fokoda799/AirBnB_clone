@@ -40,4 +40,7 @@ class BaseModel:
         od['created_at'] = od['created_at'].isoformat()
         od['updated_at'] = od['updated_at'].isoformat()
         od['__class__'] = self.__class__.__name__
+        for a in dir(self):
+            if not callable(getattr(self, a)) and not a.startswith("__") and a not in ek:
+                od[a] = getattr(self, a)
         return od
