@@ -12,7 +12,8 @@ from models.review import Review
 from models import storage
 import json
 import shlex
-classes = ["BaeModel", "User", "State", "City", "Review", "Place", "Amenity"]
+
+classes = ["BaseModel", "User", "State", "City", "Review", "Place", "Amenity"]
 
 
 def create_instance(class_name):
@@ -92,8 +93,8 @@ class HBNBCommand(Cmd):
             if key in objs:
                 del objs[key]
                 dicts = {}
-                for key in objs.keys():
-                    dicts[key] = objs[key].to_dict()
+                for k in objs.keys():
+                    dicts[k] = objs[k].to_dict()
                 with open("file.json", 'w') as f:
                     json.dump(dicts, f, indent=2)
             else:
@@ -104,10 +105,8 @@ class HBNBCommand(Cmd):
         cls_name = classes
         if not arg or arg in cls_name:
             objs = storage.all()
-            list = []
             for key in objs.keys():
-                list.append(str(objs[key].__str__()))
-            print(list)
+                print(objs[key])
         else:
             print("** class doesn't exist **")
 
@@ -116,33 +115,27 @@ class HBNBCommand(Cmd):
         args = shlex.split(arg)
         objs = storage.all()
         cls_name = classes
-        if not args:
-            print("** class name missing **")
-        elif args[0] not in cls_name:
-            print("** class doesn't exist **")
-        elif len(args) == 1:
+        if len(args) < 2:
             print("** instance id missing **")
+        elif len(args) < 3:
+            print("** attribute name missing **")
+        elif len(args) < 4:
+            print("** value missing **")
         else:
-            key = f'{args[0]}.{args[1]}'
-            if key not in objs:
-                print("** no instance found **")
-            elif len(args) == 2:
-                print("** attribute name missing **")
-            elif len(args) == 3:
-                print("** value missing **")
-            else:
+            try:
+                value = float(args[3])
+            except ValueError:
                 try:
-                    arg_float = float(args[3])
-                    objs[key].__dict__[args[2]] = arg_float
-                    objs[key].save()
+                    value = int(args[3])
                 except ValueError:
-                    try:
-                        arg_int = int(args[3])
-                        objs[key].__dict__[args[2]] = arg_int
-                        objs[key].save()
-                    except ValueError:
-                        objs[key].__dict__[args[2]] = args[3]
-                        objs[key].save()
+                    value = args[3]
+
+            key = f'{args[0]}.{args[1]}'
+            if key in objs:
+                setattr(objs[key], args[2], value)
+                objs[key].save()
+            else:
+                print("** no instance found **")
 
 
 if __name__ == "__main__":
